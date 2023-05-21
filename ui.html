@@ -1,0 +1,20 @@
+Excludes the selected node and selects everything else on the root frame of the
+node
+<!-- <p>Count: <input id="count" value="5"></p> -->
+<p>
+  <button id="create">Exclude Selection</button>
+</p>
+<button id="cancel">Cancel</button>
+<script>
+  document.getElementById("create").onclick = () => {
+    const count = 10;
+    parent.postMessage(
+      { pluginMessage: { type: "create-rectangles", count } },
+      "*"
+    );
+  };
+
+  document.getElementById("cancel").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
+  };
+</script>
